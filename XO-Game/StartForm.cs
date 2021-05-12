@@ -21,11 +21,8 @@ namespace XO_Game
         {
             PlayGame forma = new PlayGame();
             forma.ShowDialog();
+            this.Close();
         }
 
-        private void btnExitGame_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
     }
 }

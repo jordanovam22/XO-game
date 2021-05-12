@@ -30,12 +30,11 @@ namespace XO_Game
         private void InitializeComponent()
         {
             this.btnStartGame = new System.Windows.Forms.Button();
-            this.btnExitGame = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnStartGame
             // 
-            this.btnStartGame.Location = new System.Drawing.Point(104, 59);
+            this.btnStartGame.Location = new System.Drawing.Point(100, 79);
             this.btnStartGame.Name = "btnStartGame";
             this.btnStartGame.Size = new System.Drawing.Size(100, 40);
             this.btnStartGame.TabIndex = 0;
@@ -43,22 +42,11 @@ namespace XO_Game
             this.btnStartGame.UseVisualStyleBackColor = true;
             this.btnStartGame.Click += new System.EventHandler(this.btnStartGame_Click);
             // 
-            // btnExitGame
-            // 
-            this.btnExitGame.Location = new System.Drawing.Point(104, 105);
-            this.btnExitGame.Name = "btnExitGame";
-            this.btnExitGame.Size = new System.Drawing.Size(100, 40);
-            this.btnExitGame.TabIndex = 1;
-            this.btnExitGame.Text = "Exit Game";
-            this.btnExitGame.UseVisualStyleBackColor = true;
-            this.btnExitGame.Click += new System.EventHandler(this.btnExitGame_Click);
-            // 
             // StartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(326, 228);
-            this.Controls.Add(this.btnExitGame);
             this.Controls.Add(this.btnStartGame);
             this.Name = "StartForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -70,7 +58,6 @@ namespace XO_Game
         #endregion
 
         private System.Windows.Forms.Button btnStartGame;
-        private System.Windows.Forms.Button btnExitGame;
     }
 }
 
