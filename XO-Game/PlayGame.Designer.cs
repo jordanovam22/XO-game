@@ -56,7 +56,7 @@ namespace XO_Game
             // 
             this.btnNewGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewGame.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.btnNewGame.Location = new System.Drawing.Point(275, 196);
+            this.btnNewGame.Location = new System.Drawing.Point(282, 196);
             this.btnNewGame.Name = "btnNewGame";
             this.btnNewGame.Size = new System.Drawing.Size(104, 27);
             this.btnNewGame.TabIndex = 25;
@@ -68,7 +68,7 @@ namespace XO_Game
             // 
             this.btnResetGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResetGame.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.btnResetGame.Location = new System.Drawing.Point(275, 163);
+            this.btnResetGame.Location = new System.Drawing.Point(282, 163);
             this.btnResetGame.Name = "btnResetGame";
             this.btnResetGame.Size = new System.Drawing.Size(104, 27);
             this.btnResetGame.TabIndex = 24;
@@ -81,7 +81,7 @@ namespace XO_Game
             this.lbPlayer2.AutoSize = true;
             this.lbPlayer2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPlayer2.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.lbPlayer2.Location = new System.Drawing.Point(362, 132);
+            this.lbPlayer2.Location = new System.Drawing.Point(369, 132);
             this.lbPlayer2.Name = "lbPlayer2";
             this.lbPlayer2.Size = new System.Drawing.Size(17, 18);
             this.lbPlayer2.TabIndex = 23;
@@ -92,7 +92,7 @@ namespace XO_Game
             this.lbPlayer1.AutoSize = true;
             this.lbPlayer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPlayer1.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.lbPlayer1.Location = new System.Drawing.Point(362, 90);
+            this.lbPlayer1.Location = new System.Drawing.Point(369, 90);
             this.lbPlayer1.Name = "lbPlayer1";
             this.lbPlayer1.Size = new System.Drawing.Size(17, 18);
             this.lbPlayer1.TabIndex = 22;
@@ -103,7 +103,7 @@ namespace XO_Game
             this.lbName2.AutoSize = true;
             this.lbName2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbName2.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.lbName2.Location = new System.Drawing.Point(272, 132);
+            this.lbName2.Location = new System.Drawing.Point(279, 132);
             this.lbName2.Name = "lbName2";
             this.lbName2.Size = new System.Drawing.Size(79, 18);
             this.lbName2.TabIndex = 21;
@@ -114,7 +114,7 @@ namespace XO_Game
             this.lbName1.AutoSize = true;
             this.lbName1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbName1.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.lbName1.Location = new System.Drawing.Point(272, 90);
+            this.lbName1.Location = new System.Drawing.Point(279, 90);
             this.lbName1.Name = "lbName1";
             this.lbName1.Size = new System.Drawing.Size(79, 18);
             this.lbName1.TabIndex = 20;
@@ -217,7 +217,7 @@ namespace XO_Game
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(391, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(415, 24);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -256,7 +256,7 @@ namespace XO_Game
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(391, 288);
+            this.ClientSize = new System.Drawing.Size(415, 284);
             this.Controls.Add(this.btnNewGame);
             this.Controls.Add(this.btnResetGame);
             this.Controls.Add(this.lbPlayer2);
@@ -273,6 +273,7 @@ namespace XO_Game
             this.Controls.Add(this.btn2);
             this.Controls.Add(this.btn1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "PlayGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PlayGame";

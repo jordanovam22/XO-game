@@ -26,6 +26,7 @@ namespace XO_Game
         bool turn = true;
         int turnCount = 0;
 
+        // Constructor
         public PlayGame(int gameType, string playerName1, string playerName2)
         {
             this.gameType = gameType;
@@ -35,18 +36,7 @@ namespace XO_Game
             this.playerName2 = playerName2;
         }
 
-        private void aboutToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            MessageBox.Show("XO is a game for two players, X and O, who take turns marking the spaces " +
-                "in a 3×3 grid. The player who succeeds in placing three of their marks in a diagonal, " +
-                "horizontal, or vertical row is the winner.", "XO About");
-        }
-
-        private void exitToolStripMenuItem1_Click_1(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
+        // Проверка кое копче е кликаното
         private void button_Click(object sender, EventArgs e)
         {
             Button clickedButton = (Button) sender;
@@ -55,7 +45,6 @@ namespace XO_Game
                 if (turn) fillX(clickedButton);
                 else fillO(clickedButton);
                 turn = !turn;
-
                 checkForWinner();
             }
             else if(gameType == PlayGame.GAME_EASY)
@@ -83,6 +72,7 @@ namespace XO_Game
             }
         }
 
+        // Проверка за тоа кое копче е најдобро да се кликне како следно
         private Button bestButton()
         {
             updateGameMatrix();
@@ -153,6 +143,7 @@ namespace XO_Game
             return null;
         }
 
+        // Алгоритам на вештачка интелигенција
         private int minimax(int[,] matrix, int depth, bool isMaximazing)
         {
             int? result = getMatrixWinner(matrix);
@@ -234,6 +225,7 @@ namespace XO_Game
             return availableButtons[random.Next(availableButtons.Count)];
         }
 
+        // Поставува соодветни својства на копчето кое има текст Х
         private void fillX(Button clickedButton)
         {
             clickedButton.Text = "X";
@@ -242,6 +234,7 @@ namespace XO_Game
             turnCount++;
         }
 
+        // Поставува соодветни својства на копчето кое има текст О
         private void fillO(Button clickedButton)
         {
             clickedButton.Text = "O";
@@ -250,9 +243,10 @@ namespace XO_Game
             turnCount++;
         }
 
+        // Проверува дали има победник
         private bool checkForWinner()
         {
-            // Доколку имаме победник, односно доколку во некој од случаевите погоре thereIsAWinner == true
+            // Доколку имаме победник, односно доколку некој од методите за хоризонтална, вертикална или дијагонална проверка врати true
             if (horizontalCheck() || verticalCheck() || diagonalCheck())
             {
                 // Доколку веќе имаме победник го повикуваме овој метод за да оневозможиме кликнување на останатите копчиња
@@ -265,15 +259,13 @@ namespace XO_Game
                 printWinner();
 
                 return true;
-            }
-            else if (turnCount == 9)
+            } else if (turnCount == 9) // Сите полиња се кликнати и нема победник
             {
                 // Го прашува корисникот дали сака нова игра
                 confirmNewGame();
 
                 return true;
             }
-
             return false;
         }
 
@@ -460,6 +452,18 @@ namespace XO_Game
         {
             lbName1.Text = playerName1;
             lbName2.Text = playerName2;
+        }
+
+        private void aboutToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            MessageBox.Show("XO is a game for two players, X and O, who take turns marking the spaces " +
+                "in a 3×3 grid. The player who succeeds in placing three of their marks in a diagonal, " +
+                "horizontal, or vertical row is the winner.", "XO About");
+        }
+
+        private void exitToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
     }

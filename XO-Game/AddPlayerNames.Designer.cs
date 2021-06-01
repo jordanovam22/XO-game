@@ -43,7 +43,7 @@ namespace XO_Game
             // 
             // tbPlayer1
             // 
-            this.tbPlayer1.Location = new System.Drawing.Point(20, 51);
+            this.tbPlayer1.Location = new System.Drawing.Point(24, 51);
             this.tbPlayer1.Name = "tbPlayer1";
             this.tbPlayer1.Size = new System.Drawing.Size(100, 20);
             this.tbPlayer1.TabIndex = 6;
@@ -52,24 +52,28 @@ namespace XO_Game
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 35);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.label1.Location = new System.Drawing.Point(21, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 13);
+            this.label1.Size = new System.Drawing.Size(69, 16);
             this.label1.TabIndex = 5;
             this.label1.Text = "Player 1:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 85);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.label2.Location = new System.Drawing.Point(22, 83);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
+            this.label2.Size = new System.Drawing.Size(69, 16);
             this.label2.TabIndex = 7;
             this.label2.Text = "Player 2:";
             // 
             // tbPlayer2
             // 
-            this.tbPlayer2.Location = new System.Drawing.Point(20, 101);
+            this.tbPlayer2.Location = new System.Drawing.Point(24, 101);
             this.tbPlayer2.Name = "tbPlayer2";
             this.tbPlayer2.Size = new System.Drawing.Size(100, 20);
             this.tbPlayer2.TabIndex = 8;
@@ -77,12 +81,15 @@ namespace XO_Game
             // 
             // btnSaveNames
             // 
-            this.btnSaveNames.Location = new System.Drawing.Point(20, 145);
+            this.btnSaveNames.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnSaveNames.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveNames.ForeColor = System.Drawing.Color.DimGray;
+            this.btnSaveNames.Location = new System.Drawing.Point(24, 145);
             this.btnSaveNames.Name = "btnSaveNames";
-            this.btnSaveNames.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveNames.Size = new System.Drawing.Size(67, 34);
             this.btnSaveNames.TabIndex = 9;
             this.btnSaveNames.Text = "Save";
-            this.btnSaveNames.UseVisualStyleBackColor = true;
+            this.btnSaveNames.UseVisualStyleBackColor = false;
             this.btnSaveNames.Click += new System.EventHandler(this.btnSaveNames_Click);
             // 
             // errorProvider1
@@ -97,12 +104,14 @@ namespace XO_Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(263, 203);
+            this.BackColor = System.Drawing.Color.Gray;
+            this.ClientSize = new System.Drawing.Size(247, 203);
             this.Controls.Add(this.btnSaveNames);
             this.Controls.Add(this.tbPlayer2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbPlayer1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddPlayerNames";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddPlayerNames";

@@ -28,14 +28,14 @@ namespace XO_Game
         private void btnEasy_Click(object sender, EventArgs e)
         {
             this.Hide();
-            PlayGame forma = new PlayGame(PlayGame.GAME_EASY, "Player", "Computer (easy)");
+            PlayGame forma = new PlayGame(PlayGame.GAME_EASY, "Player", "Easy");
             forma.ShowDialog();
         }
 
         private void btnHard_Click(object sender, EventArgs e)
         {
             this.Hide();
-            PlayGame forma = new PlayGame(PlayGame.GAME_HARD, "Player", "Computer (hard)");
+            PlayGame forma = new PlayGame(PlayGame.GAME_HARD, "Player", "Hard");
             forma.ShowDialog();
         }
     }
