@@ -62,6 +62,7 @@ namespace XO_Game
             this.btnHard.TabIndex = 2;
             this.btnHard.Text = "1 vs Computer (hard)";
             this.btnHard.UseVisualStyleBackColor = true;
+            this.btnHard.Click += new System.EventHandler(this.btnHard_Click);
             // 
             // ChooseGameType
             // 

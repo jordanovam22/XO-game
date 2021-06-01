@@ -27,7 +27,16 @@ namespace XO_Game
 
         private void btnEasy_Click(object sender, EventArgs e)
         {
-            
+            this.Hide();
+            PlayGame forma = new PlayGame(PlayGame.GAME_EASY, "Player", "Computer (easy)");
+            forma.ShowDialog();
+        }
+
+        private void btnHard_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            PlayGame forma = new PlayGame(PlayGame.GAME_HARD, "Player", "Computer (hard)");
+            forma.ShowDialog();
         }
     }
 }

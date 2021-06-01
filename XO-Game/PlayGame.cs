@@ -19,16 +19,20 @@ namespace XO_Game
 
         private int[,] gameMatrix = new int[3, 3] { { -1, -1, -1 }, { -1, -1, -1 }, { -1, -1, -1 } };
         private Button[,] gameButtons;
+        private string playerName1;
+        private string playerName2;
 
         public int gameType; // 0-1 vs 1, 1-easy, 2-hard 
         bool turn = true;
         int turnCount = 0;
 
-        public PlayGame(int gameType)
+        public PlayGame(int gameType, string playerName1, string playerName2)
         {
             this.gameType = gameType;
             InitializeComponent();
             this.gameButtons = new Button[3, 3] { { btn1, btn2, btn3 }, { btn4, btn5, btn6 }, { btn7, btn8, btn9 } };
+            this.playerName1 = playerName1;
+            this.playerName2 = playerName2;
         }
 
         private void aboutToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -45,25 +49,208 @@ namespace XO_Game
 
         private void button_Click(object sender, EventArgs e)
         {
-            Button b = (Button)sender;
-            if (turn)
+            Button clickedButton = (Button) sender;
+            if (gameType == PlayGame.GAME_1VS1)
             {
-                b.Text = "X";
-                b.BackColor = Color.Firebrick;
-            }
-            else
-            {
-                b.Text = "O";
-                b.BackColor = Color.SteelBlue;
-            }
-            turn = !turn;
-            b.Enabled = false;
-            turnCount++;
+                if (turn) fillX(clickedButton);
+                else fillO(clickedButton);
+                turn = !turn;
 
-            checkForWinner();
+                checkForWinner();
+            }
+            else if(gameType == PlayGame.GAME_EASY)
+            {
+                turn = false;
+                fillX(clickedButton);
+                if(checkForWinner() == false)
+                {
+                    System.Threading.Thread.Sleep(1000);
+                    turn = true;
+                    fillO(randomButton());
+                    checkForWinner();
+                }
+            }
+            else if(gameType == PlayGame.GAME_HARD)
+            {
+                fillX(clickedButton);
+                if (checkForWinner() == false)
+                {
+                    System.Threading.Thread.Sleep(1000);
+                    turn = true;
+                    fillO(bestButton());
+                    checkForWinner();
+                }
+            }
         }
 
-        private void checkForWinner()
+        private Button bestButton()
+        {
+            updateGameMatrix();
+
+            int bestScore = Int32.MinValue;
+            int[] bestMove = new int[2];
+
+            for(int i=0;i<3;i++)
+            {
+                for(int j=0;j<3;j++)
+                {
+                    if(gameMatrix[i,j] == -1)
+                    {
+                        gameMatrix[i, j] = 0;
+                        int score = minimax(gameMatrix, 0, false);
+                        gameMatrix[i, j] = -1;
+                        if(score > bestScore)
+                        {
+                            bestScore = score;
+                            bestMove[0] = i;
+                            bestMove[1] = j;
+                        }
+                    }
+                }
+            }
+            return gameButtons[bestMove[0], bestMove[1]];
+        }
+
+        private int? getMatrixWinner(int[,] matrix)
+        {
+            if(matrix[0,0] == matrix[0,1] && (matrix[0,1] == matrix[0,2]) && matrix[0,0] != -1)
+            {
+                return matrix[0,0];
+            } else if (matrix[1, 0] == matrix[1, 1] && (matrix[1, 1] == matrix[1, 2]) && matrix[1, 0] != -1)
+            {
+                return matrix[1, 0];
+            } else if (matrix[2, 0] == matrix[2, 1] && (matrix[2, 1] == matrix[2, 2]) && matrix[2, 0] != -1)
+            {
+                return matrix[2, 0];
+            } else if (matrix[0,0] == matrix[1, 0] && (matrix[1, 0] == matrix[2, 0]) && matrix[0, 0] != -1)
+            {
+                return matrix[0, 0];
+            } else if (matrix[0, 1] == matrix[1, 1] && (matrix[1, 1] == matrix[2, 1]) && matrix[0, 1] != -1)
+            {
+                return matrix[0, 1];
+            } else if (matrix[0, 2] == matrix[1, 2] && (matrix[1, 2] == matrix[2, 2]) && matrix[0, 2] != -1)
+            {
+                return matrix[0, 2];
+            } else if (matrix[0, 0] == matrix[1, 1] && (matrix[1, 1] == matrix[2, 2]) && matrix[0, 0] != -1)
+            {
+                return matrix[0, 0];
+            } else if (matrix[2, 0] == matrix[1, 1] && (matrix[1, 1] == matrix[0, 2]) && matrix[0, 2] != -1)
+            {
+                return matrix[0, 2];
+            }
+            int totalPlays = 0;
+            for(int i = 0;i < 3;i++)
+            {
+                for(int j = 0;j < 3;j++)
+                {
+                    if(matrix[i,j] != -1)
+                    {
+                        totalPlays++;
+                    }
+                }
+            }
+            if (totalPlays == 9) return -1;
+            return null;
+        }
+
+        private int minimax(int[,] matrix, int depth, bool isMaximazing)
+        {
+            int? result = getMatrixWinner(matrix);
+            if(result != null)
+            {
+                return (result == 1 ? -1 : (result == 0 ? 1 : 0));
+            }
+
+            if (isMaximazing)
+            {
+                int bestScore = Int32.MinValue;
+                for(int i = 0;i < 3;i++)
+                {
+                    for(int j = 0;j < 3;j++)
+                    {
+                        if(matrix[i,j] == -1)
+                        {
+                            matrix[i, j] = 0;
+                            int score = minimax(matrix, depth + 1, false);
+                            matrix[i, j] = -1;
+                            if(score > bestScore)
+                            {
+                                bestScore = score;
+                            }
+                        }
+                    }
+                }
+                return bestScore;
+            } else
+            {
+                int bestScore = Int32.MaxValue;
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        if (matrix[i, j] == -1)
+                        {
+                            matrix[i, j] = 1;
+                            int score = minimax(matrix, depth + 1, true);
+                            matrix[i, j] = -1;
+                            if (score < bestScore)
+                            {
+                                bestScore = score;
+                            }
+                        }
+                    }
+                }
+                return bestScore;
+            }
+        }
+
+        private void updateGameMatrix()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (gameButtons[i, j].Text == "X") gameMatrix[i, j] = 1;
+                    else if (gameButtons[i, j].Text == "O") gameMatrix[i, j] = 0;
+                    else gameMatrix[i, j] = -1;
+                }
+            }
+        }
+        
+        private Button randomButton()
+        {
+            List<Button> availableButtons = new List<Button>();
+            for(int i=0;i<3;i++)
+            {
+                for(int j=0;j<3;j++)
+                {
+                    if(gameButtons[i,j].Enabled)
+                    {
+                        availableButtons.Add(gameButtons[i, j]);
+                    }
+                }
+            }
+            Random random = new Random();
+            return availableButtons[random.Next(availableButtons.Count)];
+        }
+
+        private void fillX(Button clickedButton)
+        {
+            clickedButton.Text = "X";
+            clickedButton.BackColor = Color.Firebrick;
+            clickedButton.Enabled = false;
+            turnCount++;
+        }
+
+        private void fillO(Button clickedButton)
+        {
+            clickedButton.Text = "O";
+            clickedButton.BackColor = Color.SteelBlue;
+            clickedButton.Enabled = false;
+            turnCount++;
+        }
+
+        private bool checkForWinner()
         {
             // Доколку имаме победник, односно доколку во некој од случаевите погоре thereIsAWinner == true
             if (horizontalCheck() || verticalCheck() || diagonalCheck())
@@ -76,12 +263,18 @@ namespace XO_Game
 
                 // Го пронаоѓа и принта победникот 
                 printWinner();
+
+                return true;
             }
             else if (turnCount == 9)
             {
                 // Го прашува корисникот дали сака нова игра
                 confirmNewGame();
+
+                return true;
             }
+
+            return false;
         }
 
         // Овде ги проверуваме знаците во полињата во дијагонален ред
@@ -236,8 +429,8 @@ namespace XO_Game
         {
             AddPlayerNames forma = new AddPlayerNames();
             forma.ShowDialog();
-            lbName1.Text = AddPlayerNames.player1;
-            lbName2.Text = AddPlayerNames.player2;
+            lbName1.Text = playerName1;
+            lbName2.Text = playerName2;
             btnResetGame.Enabled = true;
         }
 
@@ -265,8 +458,8 @@ namespace XO_Game
 
         private void PlayGame_Load(object sender, EventArgs e)
         {
-            lbName1.Text = AddPlayerNames.player1;
-            lbName2.Text = AddPlayerNames.player2;
+            lbName1.Text = playerName1;
+            lbName2.Text = playerName2;
         }
 
     }

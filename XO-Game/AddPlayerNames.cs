@@ -12,9 +12,6 @@ namespace XO_Game
 {
     public partial class AddPlayerNames : Form
     {
-        public static string player1 = "";
-        public static string player2 = "";
-
         public AddPlayerNames()
         {
             InitializeComponent();
@@ -23,10 +20,7 @@ namespace XO_Game
         private void btnSaveNames_Click(object sender, EventArgs e)
         {
             this.Hide();
-            player1 = tbPlayer1.Text;
-            player2 = tbPlayer2.Text;
-
-            PlayGame forma = new PlayGame(PlayGame.GAME_1VS1);
+            PlayGame forma = new PlayGame(PlayGame.GAME_1VS1, tbPlayer1.Text, tbPlayer2.Text);
             forma.ShowDialog();
             this.Close();
         }
