@@ -35,7 +35,6 @@ namespace XO_Game
             this.lbPlayer1 = new System.Windows.Forms.Label();
             this.lbName2 = new System.Windows.Forms.Label();
             this.lbName1 = new System.Windows.Forms.Label();
-            this.btnAddPlayers = new System.Windows.Forms.Button();
             this.btn9 = new System.Windows.Forms.Button();
             this.btn6 = new System.Windows.Forms.Button();
             this.btn3 = new System.Windows.Forms.Button();
@@ -55,8 +54,9 @@ namespace XO_Game
             // 
             // btnNewGame
             // 
-            this.btnNewGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewGame.Location = new System.Drawing.Point(269, 227);
+            this.btnNewGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewGame.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.btnNewGame.Location = new System.Drawing.Point(275, 196);
             this.btnNewGame.Name = "btnNewGame";
             this.btnNewGame.Size = new System.Drawing.Size(104, 27);
             this.btnNewGame.TabIndex = 25;
@@ -66,30 +66,35 @@ namespace XO_Game
             // 
             // btnResetGame
             // 
-            this.btnResetGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResetGame.Location = new System.Drawing.Point(269, 194);
+            this.btnResetGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetGame.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.btnResetGame.Location = new System.Drawing.Point(275, 163);
             this.btnResetGame.Name = "btnResetGame";
             this.btnResetGame.Size = new System.Drawing.Size(104, 27);
             this.btnResetGame.TabIndex = 24;
-            this.btnResetGame.Text = "Reset Game";
+            this.btnResetGame.Text = "New Round";
             this.btnResetGame.UseVisualStyleBackColor = true;
             this.btnResetGame.Click += new System.EventHandler(this.btnResetGame_Click_1);
             // 
             // lbPlayer2
             // 
             this.lbPlayer2.AutoSize = true;
-            this.lbPlayer2.Location = new System.Drawing.Point(355, 166);
+            this.lbPlayer2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPlayer2.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.lbPlayer2.Location = new System.Drawing.Point(362, 132);
             this.lbPlayer2.Name = "lbPlayer2";
-            this.lbPlayer2.Size = new System.Drawing.Size(13, 13);
+            this.lbPlayer2.Size = new System.Drawing.Size(17, 18);
             this.lbPlayer2.TabIndex = 23;
             this.lbPlayer2.Text = "0";
             // 
             // lbPlayer1
             // 
             this.lbPlayer1.AutoSize = true;
-            this.lbPlayer1.Location = new System.Drawing.Point(355, 124);
+            this.lbPlayer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPlayer1.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.lbPlayer1.Location = new System.Drawing.Point(362, 90);
             this.lbPlayer1.Name = "lbPlayer1";
-            this.lbPlayer1.Size = new System.Drawing.Size(13, 13);
+            this.lbPlayer1.Size = new System.Drawing.Size(17, 18);
             this.lbPlayer1.TabIndex = 22;
             this.lbPlayer1.Text = "0";
             // 
@@ -97,7 +102,8 @@ namespace XO_Game
             // 
             this.lbName2.AutoSize = true;
             this.lbName2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbName2.Location = new System.Drawing.Point(266, 163);
+            this.lbName2.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.lbName2.Location = new System.Drawing.Point(272, 132);
             this.lbName2.Name = "lbName2";
             this.lbName2.Size = new System.Drawing.Size(79, 18);
             this.lbName2.TabIndex = 21;
@@ -107,22 +113,12 @@ namespace XO_Game
             // 
             this.lbName1.AutoSize = true;
             this.lbName1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbName1.Location = new System.Drawing.Point(266, 121);
+            this.lbName1.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.lbName1.Location = new System.Drawing.Point(272, 90);
             this.lbName1.Name = "lbName1";
             this.lbName1.Size = new System.Drawing.Size(79, 18);
             this.lbName1.TabIndex = 20;
             this.lbName1.Text = "Player 1 :";
-            // 
-            // btnAddPlayers
-            // 
-            this.btnAddPlayers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddPlayers.Location = new System.Drawing.Point(269, 67);
-            this.btnAddPlayers.Name = "btnAddPlayers";
-            this.btnAddPlayers.Size = new System.Drawing.Size(99, 40);
-            this.btnAddPlayers.TabIndex = 19;
-            this.btnAddPlayers.Text = "Add Player Names";
-            this.btnAddPlayers.UseVisualStyleBackColor = true;
-            this.btnAddPlayers.Click += new System.EventHandler(this.btnAddPlayers_Click_1);
             // 
             // btn9
             // 
@@ -236,7 +232,7 @@ namespace XO_Game
             // exitToolStripMenuItem1
             // 
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem1.Text = "Exit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click_1);
             // 
@@ -251,7 +247,7 @@ namespace XO_Game
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click_1);
             // 
@@ -259,6 +255,7 @@ namespace XO_Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(391, 288);
             this.Controls.Add(this.btnNewGame);
             this.Controls.Add(this.btnResetGame);
@@ -266,7 +263,6 @@ namespace XO_Game
             this.Controls.Add(this.lbPlayer1);
             this.Controls.Add(this.lbName2);
             this.Controls.Add(this.lbName1);
-            this.Controls.Add(this.btnAddPlayers);
             this.Controls.Add(this.btn9);
             this.Controls.Add(this.btn6);
             this.Controls.Add(this.btn3);
@@ -280,6 +276,7 @@ namespace XO_Game
             this.Name = "PlayGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PlayGame";
+            this.Load += new System.EventHandler(this.PlayGame_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -295,7 +292,6 @@ namespace XO_Game
         private System.Windows.Forms.Label lbPlayer1;
         private System.Windows.Forms.Label lbName2;
         private System.Windows.Forms.Label lbName1;
-        private System.Windows.Forms.Button btnAddPlayers;
         private System.Windows.Forms.Button btn9;
         private System.Windows.Forms.Button btn6;
         private System.Windows.Forms.Button btn3;

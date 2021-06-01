@@ -10,3 +10,4 @@ C:\Users\majaj\Desktop\XO-Game\XO-Game\obj\Debug\XO-Game.csproj.CoreCompileInput
 C:\Users\majaj\Desktop\XO-Game\XO-Game\obj\Debug\XO-Game.exe
 C:\Users\majaj\Desktop\XO-Game\XO-Game\obj\Debug\XO-Game.pdb
 C:\Users\majaj\Desktop\XO-Game\XO-Game\obj\Debug\XO_Game.AddPlayerNames.resources
+C:\Users\majaj\Desktop\XO-Game\XO-Game\obj\Debug\XO_Game.ChooseGameType.resources

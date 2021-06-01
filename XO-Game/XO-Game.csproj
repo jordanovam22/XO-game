@@ -52,6 +52,12 @@
     <Compile Include="AddPlayerNames.Designer.cs">
       <DependentUpon>AddPlayerNames.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChooseGameType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseGameType.Designer.cs">
+      <DependentUpon>ChooseGameType.cs</DependentUpon>
+    </Compile>
     <Compile Include="PlayGame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     <EmbeddedResource Include="AddPlayerNames.resx">
       <DependentUpon>AddPlayerNames.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChooseGameType.resx">
+      <DependentUpon>ChooseGameType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PlayGame.resx">
       <DependentUpon>PlayGame.cs</DependentUpon>
     </EmbeddedResource>
@@ -83,6 +92,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -96,6 +106,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imageForStartForm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-elina-krima-3400795.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tic-tac-toe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

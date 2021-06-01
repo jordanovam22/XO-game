@@ -10,24 +10,24 @@ using System.Windows.Forms;
 
 namespace XO_Game
 {
-    public partial class StartForm : Form
+    public partial class ChooseGameType : Form
     {
-        public StartForm()
+        public ChooseGameType()
         {
             InitializeComponent();
         }
 
-        private void btnStartGame_Click(object sender, EventArgs e)
+        private void btn1Vs1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ChooseGameType forma = new ChooseGameType();
+            AddPlayerNames forma = new AddPlayerNames();
             forma.ShowDialog();
             this.Close();
         }
 
-        private void StartForm_Load(object sender, EventArgs e)
+        private void btnEasy_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
