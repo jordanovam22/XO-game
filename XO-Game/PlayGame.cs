@@ -208,6 +208,7 @@ namespace XO_Game
             }
         }
         
+        // Метод кој враќа листа од "достапни", односно копчиња кои не се кликнати
         private Button randomButton()
         {
             List<Button> availableButtons = new List<Button>();
@@ -246,10 +247,10 @@ namespace XO_Game
         // Проверува дали има победник
         private bool checkForWinner()
         {
-            // Доколку имаме победник, односно доколку некој од методите за хоризонтална, вертикална или дијагонална проверка врати true
+            // Доколку има победник, односно доколку некој од методите за хоризонтална, вертикална или дијагонална проверка врати true
             if (horizontalCheck() || verticalCheck() || diagonalCheck())
             {
-                // Доколку веќе имаме победник го повикуваме овој метод за да оневозможиме кликнување на останатите копчиња
+                // Доколку веќе има победник се повикува овој метод за да се оневозможи понатамошно кликање на останатите копчиња
                 disableButtons();
 
                 // Овој метод содржи соодветен звук кој се активира при победа на играчот
@@ -340,10 +341,9 @@ namespace XO_Game
         // // Го пронаоѓа и принта победникот 
         private void printWinner()
         {
-            String winner = ""; // Оваа променлива е креирана со цел да го содржи името на победникот кое се прикажува при победа
-            int sum = 0; // Во оваа променлива соодветно го чуваме резултатот за двајцата играчи
+            String winner = ""; 
+            int sum = 0; 
 
-            // Со овој код ги менуваме полињата на лабелите каде се прикажува резултатот помеѓу играчите
             if (turn)
             {
                 winner = lbName2.Text + " (O)";
@@ -356,10 +356,10 @@ namespace XO_Game
                 sum = Convert.ToInt32(lbPlayer1.Text) + 1;
                 lbPlayer1.Text = (sum).ToString();
             }
-            MessageBox.Show(winner + " Wins!", "Yay!"); // Порака која се прикажува доколку некој од играчите победи
+            MessageBox.Show(winner + " Wins!", "Yay!"); 
         }
 
-        // Кога имаме победник оневозможува кликање на другите копчиња
+        // Кога има победник оневозможува кликање на другите копчиња
         private void disableButtons()
         {
             turnCount = 0;
@@ -377,7 +377,7 @@ namespace XO_Game
             btnResetGame.Enabled = true;
         }
 
-        // Ја ресетира играта
+        // Метод кој ја ресетира играта
         private void resetGame()
         {
             turn = true;
@@ -395,7 +395,7 @@ namespace XO_Game
             btnResetGame.Enabled = true;
         }
 
-        // Дава звук во позадина кога играчот ќе кликне нова рунда
+        // Дава звук во позадина кога играчот ќе започне нова рунда
         private void playSimpleSoundForGameOver()
         {
             try
